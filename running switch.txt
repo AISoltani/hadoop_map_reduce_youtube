@@ -1,0 +1,8 @@
+yarn $HADOOP_EMPTY_CONFIG jar $HADOOP_STREAMING \
+-D stream.num.map.output.key.fields=2 \
+-D mapreduce.partition.keycomparator.options="-k2,2 -k1,1" \
+-files mapper.py,reducer.py \
+-mapper 'python3 mapper.py' \
+-reducer 'python3 reducer.py' \
+-input /user/linuxlite/youtube/0.txt \
+-output /user/linuxlite/output
